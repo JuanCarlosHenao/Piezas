@@ -2,6 +2,7 @@ package Clases;
 
 public class Cliente {
 	
+// ----- ATRIBUTOS DE LA CLASE ----- //
 	private String codigo;
 	private String nombre;
 	private String direccion;
@@ -18,6 +19,7 @@ public class Cliente {
 		this.correo = correo;
 	}
 
+// ----- GETTERS & SETTERS ----- //
 	public String getCodigo() {
 		return codigo;
 	}
@@ -58,6 +60,7 @@ public class Cliente {
 		this.solicitudes = solicitudes;
 	}
 	
+// ----- METODOS DE LA CLASE ----- //
 	
 	
 	
