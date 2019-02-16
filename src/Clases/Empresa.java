@@ -38,7 +38,7 @@ public class Empresa {
 	
 // ----- METODOS DE LA CLASE ----- //
 	
-			// METODOS DE SOLICITUD
+			// ---------- METODOS DE SOLICITUD
 	
 	public void agregarSolicitud(String codigo, String codigoPieza, Date fecha, int cantidad) {
 		if(solicitudes == null) {
@@ -61,7 +61,7 @@ public class Empresa {
 	}
 
 	
-			// METODOS DE CLIENTES
+				// ---------- METODOS DE CLIENTES
 	public void agregarCliente(String codigo, String nombre, String direccion, String correo) {
 		if (clientes == null) {
 			clientes = new Cliente[1];
@@ -93,6 +93,16 @@ public class Empresa {
 			}
 		}
 		clientes = Arrays.copyOf(clientes2, clientes2.length);
+	}
+	
+				// ---------- METODOS DE PIEZA
+	public void fabricarPieza(String codigo, String descripcion, double peso) {
+		if(piezas == null) {
+			piezas = new Pieza[1];
+		} else {
+			piezas = Arrays.copyOf(piezas, piezas.length + 1 );
+		}
+		piezas[piezas.length-1] = new Pieza(codigo, descripcion, peso);
 	}
 	
 }

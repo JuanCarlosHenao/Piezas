@@ -6,6 +6,8 @@ public abstract class Pieza {
 	protected String codigo;
 	protected String descripcion;
 	protected double peso;
+	
+// ----- GETTERS & GETTERS ----- //
 	public Pieza(String codigo, String descripcion, double peso) {
 
 		this.codigo = codigo;
@@ -30,6 +32,8 @@ public abstract class Pieza {
 	public void setPeso(double peso) {
 		this.peso = peso;
 	}
+	
+// ----- METODOS DE LA CLASE PIEZA ----- //
 	
 	public abstract double calcPrecio();
 	

@@ -11,7 +11,7 @@ public class Main {
 		Empresa e = new Empresa("EIA" , "Envigado" );
 		
 		SimpleDateFormat format = new SimpleDateFormat("yyyy-MM-dd");
-		String dateString = format.format( new Date()   );
+		String dateString = format.format(new Date());
 		Date date = format.parse ( "2019-02-18" );    
 		e.agregarSolicitud("c0d1g0", "123", date, 4);
 		System.out.println("test " + e.buscarSolicitud("c0d1g0").getCodigo() );
