@@ -4,6 +4,9 @@ public class Empresa {
 
 // ----- DEFINICION DE LOS ATRIBUTOS DE LA CLASE ----- //
 	private String nombre , direccion ;
+	private Cliente[] clientes ;
+	private Solicitud[] solicitudes ;
+	private Pieza[] piezas ;
 	
 
 // ----- GETTERS & SETTERS DE LA CLASE ----- //
