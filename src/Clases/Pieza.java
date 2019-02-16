@@ -3,8 +3,8 @@ package Clases;
 public abstract class Pieza {
 
 // ----- DEFINICION DE LOS ATRIBUTOS DE LA CLASE ----- //
-	private String codigo;
-	private String descripcion;
+	protected String codigo;
+	protected String descripcion;
 	protected double peso;
 	public Pieza(String codigo, String descripcion, double peso) {
 

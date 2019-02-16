@@ -10,16 +10,12 @@ public class Cliente {
 	private boolean VIP;
 	private Solicitud[] solicitudes;
 	
-	public Cliente(String codigo, String nombre, String direccion, String correo, String formaPago, boolean VIP,
-			Solicitud[] solicitudes) {
+	public Cliente(String codigo, String nombre, String direccion, String correo) {
 		super();
 		this.codigo = codigo;
 		this.nombre = nombre;
 		this.direccion = direccion;
 		this.correo = correo;
-		this.formaPago = formaPago;
-		this.VIP = VIP;
-		this.solicitudes = solicitudes;
 	}
 
 	public String getCodigo() {
