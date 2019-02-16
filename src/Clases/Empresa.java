@@ -62,5 +62,37 @@ public class Empresa {
 
 	
 			// METODOS DE CLIENTES
+	public void agregarCliente(String codigo, String nombre, String direccion, String correo) {
+		if (clientes == null) {
+			clientes = new Cliente[1];
+		} else {
+			clientes = Arrays.copyOf(clientes, clientes.length+1);
+			}
+		clientes[clientes.length-1] = new Cliente(codigo, nombre, direccion, correo);
+	}
+	
+	public Cliente buscarCliente(String codigo) throws CSolicitud {
+		int i = 0 ;
+		while(i < clientes.length) {
+			if(clientes[i].getCodigo().compareTo(codigo)==0) {
+				return clientes[i] ;
+			} else
+				i++;
+		}
+		throw new CSolicitud("No se encontró el cliente.");
+	}
+	
+	public void eliminarCliente(String codigo, String nombre, String direccion , String correo) throws ECliente {
+		Cliente[] clientes2;
+		clientes2 = new Cliente[clientes.length-1];
+		int cont = 0 ;
+		for(int i = 0 ; i < clientes.length; i++) {
+			if(clientes2[i].getCodigo().compareTo(codigo)!=0) {
+				clientes2[cont]=clientes[i]; 
+				cont++;
+			}
+		}
+		clientes = Arrays.copyOf(clientes2, clientes2.length);
+	}
 	
 }
