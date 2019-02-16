@@ -10,7 +10,7 @@ public class Cliente {
 	private boolean VIP;
 	private Solicitud[] solicitudes;
 	
-	public Cliente(String codigo, String nombre, String direccion, String correo, String formaPago, boolean vIP,
+	public Cliente(String codigo, String nombre, String direccion, String correo, String formaPago, boolean VIP,
 			Solicitud[] solicitudes) {
 		super();
 		this.codigo = codigo;
@@ -18,7 +18,7 @@ public class Cliente {
 		this.direccion = direccion;
 		this.correo = correo;
 		this.formaPago = formaPago;
-		VIP = vIP;
+		this.VIP = VIP;
 		this.solicitudes = solicitudes;
 	}
 
@@ -82,37 +82,4 @@ public class Cliente {
 	
 	
 
-// ----- DEFINICION DE LOS ATRIBUTOS DE LA CLASE ----- //
-	private String codigo , nombreE , direccionE , correo , formPago ;
-	private boolean VIP ;
-	
-	
-// ----- GETTERS & SETTERS DE LA CLASE ----- //
-	public String getNombreE() {
-		return nombreE;
-	}
-	public void setNombreE(String nombreE) {
-		this.nombreE = nombreE;
-	}
-	public String getDireccionE() {
-		return direccionE;
-	}
-	public void setDireccionE(String direccionE) {
-		this.direccionE = direccionE;
-	}
-	public String getCodigo() {
-		return codigo;
-	}
-	public void setCodigo(String codigo) {
-		this.codigo = codigo;
-	}
-	public String getCorreo() {
-		return correo;
-	}
-	public void setCorreo(String correo) {
-		this.correo = correo;
-	}
-	
-// ----- METODOS DE LA CLASE ----- //
-	
 }
