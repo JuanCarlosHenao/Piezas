@@ -8,6 +8,12 @@ public class Mixta extends Pieza {
 	}
 
 	private Pieza[] piezas;
+
+	@Override
+	public double calcPrecio() {
+		// TODO Auto-generated method stub
+		return 0;
+	}
 	
 
 }
