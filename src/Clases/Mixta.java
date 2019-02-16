@@ -1,5 +1,5 @@
 package Clases;
 
-public class Mixta {
+public class Mixta extends Pieza {
 
 }

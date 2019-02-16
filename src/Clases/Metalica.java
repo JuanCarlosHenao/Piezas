@@ -1,5 +1,5 @@
 package Clases;
 
-public class Metalica {
+public class Metalica extends Pieza {
 
 }
