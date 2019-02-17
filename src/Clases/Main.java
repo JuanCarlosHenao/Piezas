@@ -80,14 +80,12 @@ public class Main {
 		}*/
 		
 							// TEST DE PIEZAS 
-<<<<<<< HEAD
 		/*
 		System.out.println(e.costoSolicitud("2"));
 		System.out.println(e.costoSolicitud("1"));
 		System.out.println();
 		System.out.println(e.costoTotalSolicitudes("jk234"));
 		*/
-=======
 		
 		
 		System.out.println("costo pieza metalica 112*5 ="+e.costoSolicitud("1"));
@@ -135,10 +133,6 @@ public class Main {
 		System.out.println("costo pieza mixta 181 10 "+e.costoSolicitud("3"));*/
 		
 		
-		
-		
-		
->>>>>>> 663cac7de87c39e6486ab72c75aa87e247e889f4
 	}
 
 }
