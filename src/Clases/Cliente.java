@@ -78,9 +78,6 @@ public class Cliente {
 		this.solicitudes = solicitudes;
 	}
 	
-	
-	
-	
 // ----- METODOS DE LA CLASE ----- //
 	
 	

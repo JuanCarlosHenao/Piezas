@@ -13,9 +13,9 @@ public class Main {
 								// CREACION DE CLIENTES
 		
 		// 	    FORMATO (codigo ,   nombre  , direccion ,    correo          ,   tipo de pago)
-		e.agregarCliente("jk234", "Empresa1", "RioNegro", "correo@juanca.com", "Cheque Ordinario");
-		e.agregarCliente("cA193", "Empresa2", "Medellin", "correo@camiloa.com", "Cheque de Empresa");
-		e.agregarCliente("Lm412", "Empresa3", "Pereira", "correo@luchom.com", "Cheque Certificado");
+		e.agregarCliente("jk234", "Postobon", "RioNegro", "correo@juanca.com", "Cheque Ordinario");
+		e.agregarCliente("cA193", "Nestlé", "Medellin", "correo@camiloa.com", "Cheque de Empresa");
+		e.agregarCliente("Lm412", "Dog&Burguer", "Pereira", "correo@luchom.com", "Cheque Certificado");
 		
 								// CREACION DE SOLICITUDES
 		
@@ -33,6 +33,21 @@ public class Main {
 		e.agregarSolicitud("4", "jk234", "53", "Base", 10, "METALICA", date4, 3);
 		
 		
+		// Creo un ensamble para la  pieza mixta 
+		Pieza[] ensamble = new Pieza[2];
+		ensamble[0]=e.buscarSolicitud("1").getPieza();
+		ensamble[1]=e.buscarSolicitud("2").getPieza();
+				
+		// CREO UNA SOLICITUD DE PIEZA MIXTA 
+		//String codigo, String codCliente, String codigoPieza, String descripcion, double peso, String tipo, Date fecha, int cantidad, Pieza[] ensamble
+				e.agregarSolicitudMixta("5", "jk234", "53", "lami", 3,	"MIXTA", date, 10, ensamble);
+		
+		
+		System.out.println("--> RESUMEN DE CLIENTES DE LA EMPRESA " + e.getNombre() + " <--");
+		System.out.println();
+		e.imprimirCliente();
+		
+		//System.out.println("El cliente VIP es: " + e.buscarVip().getCodigo());
 		
 		
 		

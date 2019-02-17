@@ -208,4 +208,28 @@ public class Empresa {
 		return null;
 	}
 	
+	
+			// METODOS PARA IMPRIMIR CON FORMATO
+	
+	public void imprimirCliente() throws ESolicitud, CSolicitud {
+		for(int i = 0 ; i < getClientes().length ; i++) {
+			System.out.println("Codigo del cliente " + (i+1) + ": " + getClientes()[i].getCodigo() 
+							+ "\nNombre: " + getClientes()[i].getNombre()
+							+ "\nDirección:" + getClientes()[i].getDireccion()
+							+ "\nCorreo: " + getClientes()[i].getCorreo()
+							+ "\nForma de pago: " + getClientes()[i].getFormaPago());
+			System.out.println();
+			for(int j = 0 ; j < solicitudes.length ; j ++) {
+				if(solicitudes[j].getCodCliente() == clientes[i].getCodigo()) {
+				System.out.println("Costo de la solicitud referenciada por " + solicitudes[j].getCodigo() + ", es " + costoSolicitud(solicitudes[j].getCodigo()) );
+				}
+			}
+			System.out.println("\nCosto total de todas las solicitudes: " + costoTotalSolicitudes(clientes[i].getCodigo()));
+			if(clientes[i].getCodigo().compareTo(buscarVip().getCodigo())==0) {
+				System.out.println("\nESTE ES EL CLIENTE VIP.");
+			}
+			System.out.println("-----------------------------------------");
+		}
+	}
+	
 }
