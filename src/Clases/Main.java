@@ -10,25 +10,32 @@ public class Main {
 
 		Empresa e = new Empresa("EIA" , "Envigado" );
 		
-		// CREACION DE CLIENTES
-		e.agregarCliente("jk234", "Empresa1", "Envigado", "correo@camilogay.com", "Cheque Ordinario");
-		e.agregarCliente("mk69", "Empresa2", "Medellin", "correo@juancagay.com", "Cheque de Empresa");
-		e.agregarCliente("oe54ld", "Empresa3", "Pereira", "correo@luchoelmacho.com", "Cheque Certificado");
+								// CREACION DE CLIENTES
 		
-		// CREACION DE SOLICITUDES
+		// 	    FORMATO:(codigo ,   nombre  , direccion ,    correo             ,   tipo de pago)
+		e.agregarCliente("jk234", "Empresa1", "RioNegro", "correo@juanca.com", "Cheque Ordinario");
+		e.agregarCliente("cA193", "Empresa2", "Medellin", "correo@camiloa.com", "Cheque de Empresa");
+		e.agregarCliente("Lm412", "Empresa3", "Pereira", "correo@luchom.com", "Cheque Certificado");
+		
+								// CREACION DE SOLICITUDES
+		
 		SimpleDateFormat format = new SimpleDateFormat("yyyy-MM-dd");
 		String dateString = format.format(new Date());
 		Date date = format.parse ( "2019-02-18" );
 		Date date2 = format.parse ( "2019-02-19" );
 		Date date3 = format.parse ( "2019-02-29" );
 		Date date4 = format.parse ( "2019-02-10" );
-		e.agregarSolicitud("1", "jk234", "50", "camilo es gay", 20, "METALICA", date, 5);
-		e.agregarSolicitud("2", "jk234", "51", "camilo loca	", 30, "PLASTICO", date2, 10);
 		
-//		e.agregarSolicitud("c0d1g0", "jk234" , "redondo", date, 4);
-//		e.agregarSolicitud("kissf", "jk234" , "cuadrado", date2, 5);
-//		e.agregarSolicitud("poeda3", "mk69" , "tornillo", date3, 1);
-//		e.agregarSolicitud("gw3hf", "oe54ld" , "camilomarica", date4, 2);
+		// FORMATO      (codSol, codCli  , codPie , descripcion , peso , tipoPie  , fecha , cantidad)  
+		e.agregarSolicitud("1",   "jk234", "50", "Tornillo", 20  , "METALICA", date, 5);
+		e.agregarSolicitud("2", "cA193", "51", "Tuerca", 30, "PLASTICO", date2, 10);
+		e.agregarSolicitud("3", "Lm412", "55", "Tapa", 15, "PLASTICO", date3, 7);
+		e.agregarSolicitud("4", "jk234", "53", "Base", 10, "METALICA", date4, 3);
+		
+		
+		
+		
+		
 		
 		
 									// TEST DE AGREGACION DE CLIENTES
@@ -73,6 +80,14 @@ public class Main {
 		}*/
 		
 							// TEST DE PIEZAS 
+<<<<<<< HEAD
+		/*
+		System.out.println(e.costoSolicitud("2"));
+		System.out.println(e.costoSolicitud("1"));
+		System.out.println();
+		System.out.println(e.costoTotalSolicitudes("jk234"));
+		*/
+=======
 		
 		
 		// veo que si fucione costo total solicitudes 
@@ -136,6 +151,7 @@ public class Main {
 		
 		
 		
+>>>>>>> 663cac7de87c39e6486ab72c75aa87e247e889f4
 	}
 
 }
