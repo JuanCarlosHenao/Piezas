@@ -3,9 +3,6 @@ package Clases;
 import java.util.Arrays;
 import java.util.Date;
 
-
-
-
 public class Empresa {
 
 // ----- DEFINICION DE LOS ATRIBUTOS DE LA CLASE ----- //
@@ -13,11 +10,14 @@ public class Empresa {
 	private Cliente[] clientes ;
 	private Solicitud[] solicitudes ;
 	private Pieza[] piezas ;
-	
 
 // ----- GETTERS & SETTERS DE LA CLASE ----- //
 	
-	
+	public Empresa(String nombre, String direccion) {
+		super();
+		this.nombre = nombre;
+		this.direccion = direccion;
+	}
 	
 	public String getNombre() {
 		return nombre;
@@ -32,12 +32,6 @@ public class Empresa {
 	}
 
 	public void setDireccion(String direccion) {
-		this.direccion = direccion;
-	}
-	
-	public Empresa(String nombre, String direccion) {
-		super();
-		this.nombre = nombre;
 		this.direccion = direccion;
 	}
 	
@@ -65,8 +59,6 @@ public class Empresa {
 		this.piezas = piezas;
 	}
 	
-	
-	
 // ----- METODOS DE LA CLASE ----- //
 	
 			// ---------- METODOS DE SOLICITUD
@@ -74,13 +66,10 @@ public class Empresa {
 	public void aggPieza(Pieza p) {
 		if (piezas == null) {
 			piezas=new Pieza [1];
-			
 		}else {
 			piezas=Arrays.copyOf(piezas, piezas.length+1);
 		}
-		
 		piezas[piezas.length-1]=p;
-		
 	}
 	
 	public void agregarSolicitud(String codigo, String codCliente, String codigoPieza, String descripcion, double peso, String tipo, Date fecha, int cantidad) {
@@ -145,7 +134,6 @@ public class Empresa {
 		Pieza p = s.getPieza();
 		double costo = p.calcPrecio()*s.getCantidad();
 		return costo;
-	
 	}
 	
 	/*public double costoTotalSolicitudes1(String codCliente ) throws CSolicitud, ESolicitud {
@@ -204,26 +192,20 @@ public class Empresa {
 	
 	
 	// recorre cada cliente, calcula el costo total de las solicitudes de él, luego elige la mayor
-	// vuleve a comparar el costoTotalsolicitudes con la myor y da el codigo del cliente 
+	// vuleve a comparar el costoTotalsolicitudes con la mayor y da el codigo del cliente 
 	public Cliente buscarVip() throws ESolicitud, CSolicitud {
 		double mayor=0;
-		
-		
-		
 		for (int i=0;i<clientes.length;i++) {
 			if (costoTotalSolicitudes(clientes[i].getCodigo())>mayor) {
 				mayor=costoTotalSolicitudes(clientes[i].getCodigo());
 			}
 		}
-		
 		for (int i=0;i<clientes.length;i++) {
 			if (costoTotalSolicitudes(clientes[i].getCodigo())==mayor) {
 				return clientes[i];
 			}
 		}
-		
 		return null;
-		
 	}
 	
 }

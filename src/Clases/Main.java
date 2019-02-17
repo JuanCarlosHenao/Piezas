@@ -12,7 +12,7 @@ public class Main {
 		
 								// CREACION DE CLIENTES
 		
-		// 	    FORMATO:(codigo ,   nombre  , direccion ,    correo             ,   tipo de pago)
+		// 	    FORMATO (codigo ,   nombre  , direccion ,    correo          ,   tipo de pago)
 		e.agregarCliente("jk234", "Empresa1", "RioNegro", "correo@juanca.com", "Cheque Ordinario");
 		e.agregarCliente("cA193", "Empresa2", "Medellin", "correo@camiloa.com", "Cheque de Empresa");
 		e.agregarCliente("Lm412", "Empresa3", "Pereira", "correo@luchom.com", "Cheque Certificado");
@@ -31,6 +31,8 @@ public class Main {
 		e.agregarSolicitud("2", "cA193", "51", "Tuerca", 30, "PLASTICO", date2, 10);
 		e.agregarSolicitud("3", "Lm412", "55", "Tapa", 15, "PLASTICO", date3, 7);
 		e.agregarSolicitud("4", "jk234", "53", "Base", 10, "METALICA", date4, 3);
+		
+		
 		
 		
 		
@@ -86,7 +88,7 @@ public class Main {
 		System.out.println();
 		System.out.println(e.costoTotalSolicitudes("jk234"));
 		*/
-		
+		/*
 		
 		// veo que si fucione costo total solicitudes 
 		
@@ -136,7 +138,7 @@ public class Main {
 		System.out.println("costo pieza mixta 181*10 ="+e.costoSolicitud("15"));
 		System.out.println(e.costoTotalSolicitudes("mk69"));
 		
-		System.out.println(e.buscarVip().getCodigo());
+		System.out.println(e.buscarVip().getCodigo());*/
 		
 		
 		

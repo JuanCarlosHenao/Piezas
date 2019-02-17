@@ -31,9 +31,6 @@ public class Solicitud {
 	
 // ----- GETTERS & SETTERS ----- //
 	
-	
-	
-	
 	public String getTipo() {
 		return tipo;
 	}
@@ -49,7 +46,6 @@ public class Solicitud {
 	public Pieza getPieza() {
 		return pieza;
 	}
-
 
 	public void setPieza(Pieza pieza) {
 		this.pieza = pieza;
@@ -84,6 +80,4 @@ public class Solicitud {
 		this.codCliente = codCliente;
 	}
 
-	
-	
 }
