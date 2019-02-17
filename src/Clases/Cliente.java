@@ -21,6 +21,7 @@ public class Cliente {
 	}
 
 	// ----- GETTERS & SETTERS ----- //
+	
 	public String getCodigo() {
 		return codigo;
 	}
@@ -61,6 +62,24 @@ public class Cliente {
 		this.formaPago = formaPago;
 	}
 
+	public boolean isVIP() {
+		return VIP;
+	}
+
+	public void setVIP(boolean vIP) {
+		VIP = vIP;
+	}
+
+	public Solicitud[] getSolicitudes() {
+		return solicitudes;
+	}
+
+	public void setSolicitudes(Solicitud[] solicitudes) {
+		this.solicitudes = solicitudes;
+	}
+	
+	
+	
 	
 // ----- METODOS DE LA CLASE ----- //
 	

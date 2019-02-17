@@ -31,6 +31,9 @@ public class Solicitud {
 	
 // ----- GETTERS & SETTERS ----- //
 	
+	
+	
+	
 	public String getTipo() {
 		return tipo;
 	}

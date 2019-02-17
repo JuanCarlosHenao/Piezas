@@ -41,9 +41,16 @@ public abstract class Pieza {
 		this.tipo = tipo;
 	}
 	
+	
+	
 // ----- METODOS DE LA CLASE PIEZA ----- //
 	
+	
 	public abstract double calcPrecio();
+	public void addPieza(String tipoPieza) {
+		// TODO Auto-generated method stub
+		
+	}
 	
 	
 

@@ -3,6 +3,9 @@ package Clases;
 import java.util.Arrays;
 import java.util.Date;
 
+
+
+
 public class Empresa {
 
 // ----- DEFINICION DE LOS ATRIBUTOS DE LA CLASE ----- //
@@ -13,6 +16,9 @@ public class Empresa {
 	
 
 // ----- GETTERS & SETTERS DE LA CLASE ----- //
+	
+	
+	
 	public String getNombre() {
 		return nombre;
 	}
@@ -65,6 +71,18 @@ public class Empresa {
 	
 			// ---------- METODOS DE SOLICITUD
 	
+	public void aggPieza(Pieza p) {
+		if (piezas == null) {
+			piezas=new Pieza [1];
+			
+		}else {
+			piezas=Arrays.copyOf(piezas, piezas.length+1);
+		}
+		
+		piezas[piezas.length-1]=p;
+		
+	}
+	
 	public void agregarSolicitud(String codigo, String codCliente, String codigoPieza, String descripcion, double peso, String tipo, Date fecha, int cantidad) {
 		if(solicitudes == null) {
 			solicitudes = new Solicitud[1];
@@ -73,14 +91,28 @@ public class Empresa {
 		}
 		if (tipo.compareTo("METALICA")==0) {
 			Pieza p=new Metalica(codigoPieza, descripcion, tipo, peso);
+			aggPieza(p);
 			solicitudes[solicitudes.length-1]= new Solicitud(codigo,fecha, cantidad, codCliente, p, tipo);
 		} else if(tipo.compareTo("PLASTICO")==0) {
 			Pieza p=new Plastico(codigoPieza, descripcion, tipo, peso);
+			aggPieza(p);
 			solicitudes[solicitudes.length-1]= new Solicitud(codigo,fecha, cantidad, codCliente, p, tipo);
 		}
-		
 	}
 	
+	
+	public void agregarSolicitudMixta(String codigo, String codCliente, String codigoPieza, String descripcion, double peso, String tipo, Date fecha, int cantidad, Pieza[] ensamble) {
+		if(solicitudes == null) {
+			solicitudes = new Solicitud[1];
+		} else {
+			solicitudes = Arrays.copyOf(solicitudes , solicitudes.length+1);
+		}
+		
+		Pieza p=new Mixta(codigoPieza, descripcion, tipo, peso, ensamble);
+		aggPieza(p);
+		solicitudes[solicitudes.length-1]= new Solicitud(codigo,fecha, cantidad, codCliente, p, tipo);
+	}
+
 	public Solicitud buscarSolicitud(String codigo) throws ESolicitud {
 		int i = 0;
 		while(i < solicitudes.length) {
@@ -113,6 +145,15 @@ public class Empresa {
 		return costo;
 	
 	}
+	
+	/*public double costoTotalSolicitudes1(String codCliente ) throws CSolicitud, ESolicitud {
+		Cliente c=buscarCliente(codCliente);
+		double total=0;
+		for (int i=0;i<c.getSolicitudes().length;i++) {
+			total+=costoSolicitud(c.getSolicitudes()[i].getCodigo());
+		}	
+		return total;
+	}*/
 	
 	public double costoTotalSolicitudes(String codCliente) throws ESolicitud, CSolicitud {
 		double total=0;
@@ -159,14 +200,29 @@ public class Empresa {
 		throw new ECliente("No se pudo borrar el cliente");
 	}
 	
-				// ---------- METODOS DE PIEZA
-	public void fabricarPieza(String codigo, String descripcion, double peso) {
-		if(piezas == null) {
-			piezas = new Pieza[1];
-		} else {
-			piezas = Arrays.copyOf(piezas, piezas.length + 1 );
+	
+	// FALTA 
+	public Cliente buscarVip() throws ESolicitud, CSolicitud {
+		double mayor=0;
+		
+		
+		
+		for (int i=0;i<solicitudes.length;i++) {
+			if (costoTotalSolicitudes(clientes[i].getCodigo())>mayor) {
+				mayor=costoTotalSolicitudes(clientes[i].getCodigo());
+			}
 		}
-		//piezas[piezas.length-1] = new Pieza(codigo, descripcion, peso);
+		
+		for (int i=0;i<clientes.length;i++) {
+			if (costoTotalSolicitudes(clientes[i].getCodigo())==mayor) {
+				return clientes[i];
+			}
+		}
+		
+		return null;
+		
+	
+				// ---------- METODOS DE PIEZA
 	}
 	
 }

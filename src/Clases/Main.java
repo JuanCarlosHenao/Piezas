@@ -74,10 +74,54 @@ public class Main {
 		
 							// TEST DE PIEZAS 
 		
-		System.out.println(e.costoSolicitud("2"));
-		System.out.println(e.costoSolicitud("1"));
+		
+		System.out.println("costo pieza metalica 112*5 ="+e.costoSolicitud("1"));
+		System.out.println("costo pieza plstica 69*10 ="+e.costoSolicitud("2"));
 		System.out.println();
 		System.out.println(e.costoTotalSolicitudes("jk234"));
+		
+		
+		
+		Pieza[] ensamble = new Pieza[2];
+		ensamble[0]=e.buscarSolicitud("1").getPieza();
+		ensamble[1]=e.buscarSolicitud("2").getPieza();
+		
+		// String codigo, String codCliente, String codigoPieza, String descripcion, double peso, String tipo, Date fecha, int cantidad, Pieza[] ensamble
+		e.agregarSolicitudMixta("3", "jk234", "53", "lami", 3,	"MIXTA", date, 10, ensamble);
+		
+		
+		
+		System.out.println(e.buscarSolicitud("3").getCodCliente());
+		System.out.println("costo pieza mixta 181*10 ="+e.costoSolicitud("3"));
+		
+		System.out.println(e.costoTotalSolicitudes("jk234"));
+		
+		System.out.println("----------------------------------------------");
+		
+		e.agregarCliente("mk69", "Empresa2", "Medellin", "correo@juancagay.com", "Cheque de Empresa");
+		e.agregarSolicitud("13", "mk69", "50", "camilo es gay", 10, "METALICA", date, 5);
+		e.agregarSolicitud("14", "mk69", "51", "camilo loca	", 10, "PLASTICO", date2, 10);
+		System.out.println("costo pieza plstica 84*5 ="+e.costoSolicitud("13"));
+		System.out.println("costo pieza metalica 43*10 ="+e.costoSolicitud("14"));
+		System.out.println();
+		System.out.println(e.costoTotalSolicitudes("mk69"));
+		e.agregarSolicitudMixta("15", "mk69", "53", "lami", 3,	"MIXTA", date, 10, ensamble);
+		System.out.println(e.buscarSolicitud("15").getCodCliente());
+		System.out.println("costo pieza mixta 181*10 ="+e.costoSolicitud("15"));
+		System.out.println(e.costoTotalSolicitudes("mk69"));
+		
+		System.out.println(e.buscarVip().getCodigo());
+		
+		
+		
+		
+		
+		/*e.buscarSolicitud("3").getPieza().addPieza("PLASTICO");
+		System.out.println("costo pieza mixta 181 10 "+e.costoSolicitud("3"));*/
+		
+		
+		
+		
 		
 	}
 
