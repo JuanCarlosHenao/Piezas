@@ -207,7 +207,7 @@ public class Empresa {
 		
 		
 		
-		for (int i=0;i<solicitudes.length;i++) {
+		for (int i=0;i<clientes.length;i++) {
 			if (costoTotalSolicitudes(clientes[i].getCodigo())>mayor) {
 				mayor=costoTotalSolicitudes(clientes[i].getCodigo());
 			}
