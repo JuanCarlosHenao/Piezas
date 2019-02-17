@@ -50,11 +50,6 @@ public class Main {
 		//System.out.println("El cliente VIP es: " + e.buscarVip().getCodigo());
 		
 		
-		
-		
-		
-		
-		
 									// TEST DE AGREGACION DE CLIENTES
 		
 		/*for(int i = 0 ; i < e.getClientes().length ; i++) {
@@ -135,8 +130,6 @@ public class Main {
 		
 		System.out.println("----------------------------------------------");
 		
-		
-		
 		// TEST VIP 
 		
 		// agrego solicitudes al otro cliente mk69,  que el costo total sea menor al de jk234, y el vip es jk234
@@ -154,10 +147,6 @@ public class Main {
 		System.out.println(e.costoTotalSolicitudes("mk69"));
 		
 		System.out.println(e.buscarVip().getCodigo());*/
-		
-		
-		
-		
 		
 		/*e.buscarSolicitud("3").getPieza().addPieza("PLASTICO");
 		System.out.println("costo pieza mixta 181 10 "+e.costoSolicitud("3"));*/

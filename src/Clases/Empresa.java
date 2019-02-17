@@ -228,7 +228,7 @@ public class Empresa {
 			if(clientes[i].getCodigo().compareTo(buscarVip().getCodigo())==0) {
 				System.out.println("\nESTE ES EL CLIENTE VIP.");
 			}
-			System.out.println("-----------------------------------------");
+			System.out.println("---------------------------------------------");
 		}
 	}
 	
