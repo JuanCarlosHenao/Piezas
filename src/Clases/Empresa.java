@@ -35,6 +35,30 @@ public class Empresa {
 		this.direccion = direccion;
 	}
 	
+	public Cliente[] getClientes() {
+		return clientes;
+	}
+
+	public void setClientes(Cliente[] clientes) {
+		this.clientes = clientes;
+	}
+
+	public Solicitud[] getSolicitudes() {
+		return solicitudes;
+	}
+
+	public void setSolicitudes(Solicitud[] solicitudes) {
+		this.solicitudes = solicitudes;
+	}
+
+	public Pieza[] getPiezas() {
+		return piezas;
+	}
+
+	public void setPiezas(Pieza[] piezas) {
+		this.piezas = piezas;
+	}
+	
 	
 // ----- METODOS DE LA CLASE ----- //
 	
@@ -59,6 +83,19 @@ public class Empresa {
 		}
 		throw new ESolicitud("No se encontró la solicitud.");
 	}
+	
+	public void eliminarSolicitud(String codigo) throws ESolicitud {
+		Solicitud[] solicitudes2;
+		solicitudes2 = new Solicitud[solicitudes.length-1];
+		int cont = 0 ;
+		for(int i = 0 ; i < solicitudes.length; i++) {
+			if(solicitudes2[i].getCodigo().compareTo(codigo)!=0) {
+				solicitudes2[cont]=solicitudes[i]; 
+				cont++;
+			}
+		}
+		solicitudes = Arrays.copyOf(solicitudes2, solicitudes2.length);
+	}
 
 	
 				// ---------- METODOS DE CLIENTES
@@ -82,7 +119,7 @@ public class Empresa {
 		throw new CSolicitud("No se encontró el cliente.");
 	}
 	
-	public void eliminarCliente(String codigo, String nombre, String direccion , String correo) throws ECliente {
+	public void eliminarCliente(String codigo) throws ECliente {
 		Cliente[] clientes2;
 		clientes2 = new Cliente[clientes.length-1];
 		int cont = 0 ;
