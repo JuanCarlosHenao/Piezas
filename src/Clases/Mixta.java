@@ -1,15 +1,14 @@
 package Clases;
 
 public class Mixta extends Pieza {
+
+	private Pieza[] piezas;
 	
-	public Mixta(String codigo, String descripcion, double peso) {
-		super(codigo, descripcion, peso);
+	public Mixta(String codigo, String tipo, String descripcion, double peso) {
+		super(codigo, tipo, descripcion, peso);
 		// TODO Auto-generated constructor stub
 	}
 
-	private Pieza[] piezas;
-
-	@Override
 	public double calcPrecio() {
 		// TODO Auto-generated method stub
 		return 0;

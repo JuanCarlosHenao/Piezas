@@ -2,8 +2,8 @@ package Clases;
 
 public class Metalica extends Pieza {
 
-	public Metalica(String codigo, String descripcion, double peso) {
-		super(codigo, descripcion, peso);
+	public Metalica(String codigo, String tipo , String descripcion, double peso) {
+		super(codigo, tipo, descripcion, peso);
 	}
 
 	@Override

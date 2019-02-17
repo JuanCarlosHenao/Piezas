@@ -60,18 +60,26 @@ public class Empresa {
 	}
 	
 	
+	
 // ----- METODOS DE LA CLASE ----- //
 	
 			// ---------- METODOS DE SOLICITUD
 	
-	public void agregarSolicitud(String codigo, String codigoPieza, Date fecha, int cantidad) {
+	public void agregarSolicitud(String codigo, String codCliente, String codigoPieza, String descripcion, double peso, String tipo, Date fecha, int cantidad) {
 		if(solicitudes == null) {
 			solicitudes = new Solicitud[1];
 		} else {
 			solicitudes = Arrays.copyOf(solicitudes , solicitudes.length+1);
 		}
-		solicitudes[solicitudes.length-1]= new Solicitud(codigo, codigoPieza, fecha, cantidad);
-	}	
+		if (tipo.compareTo("METALICA")==0) {
+			Pieza p=new Metalica(codigoPieza, descripcion, tipo, peso);
+			solicitudes[solicitudes.length-1]= new Solicitud(codigo,fecha, cantidad, codCliente, p, tipo);
+		} else if(tipo.compareTo("PLASTICO")==0) {
+			Pieza p=new Plastico(codigoPieza, descripcion, tipo, peso);
+			solicitudes[solicitudes.length-1]= new Solicitud(codigo,fecha, cantidad, codCliente, p, tipo);
+		}
+		
+	}
 	
 	public Solicitud buscarSolicitud(String codigo) throws ESolicitud {
 		int i = 0;
@@ -89,14 +97,32 @@ public class Empresa {
 		solicitudes2 = new Solicitud[solicitudes.length-1];
 		int cont = 0 ;
 		for(int i = 0 ; i < solicitudes.length; i++) {
-			if(solicitudes2[i].getCodigo().compareTo(codigo)!=0) {
+			if(solicitudes[i].getCodigo().compareTo(codigo)!=0) {
 				solicitudes2[cont]=solicitudes[i]; 
 				cont++;
 			}
 		}
 		solicitudes = Arrays.copyOf(solicitudes2, solicitudes2.length);
+		throw new ESolicitud("No se pudo eliminar la solicitud");
 	}
-
+	
+	public double costoSolicitud(String codigoSolicitud) throws ESolicitud {
+		Solicitud s = buscarSolicitud(codigoSolicitud);
+		Pieza p = s.getPieza();
+		double costo = p.calcPrecio()*s.getCantidad();
+		return costo;
+	
+	}
+	
+	public double costoTotalSolicitudes(String codCliente) throws ESolicitud, CSolicitud {
+		double total=0;
+		for (int i=0;i<solicitudes.length;i++) {
+			if (solicitudes[i].getCodCliente().compareTo(codCliente)==0) {
+				total+=costoSolicitud(solicitudes[i].getCodigo());
+			}
+		}
+		return total ;
+	}
 	
 				// ---------- METODOS DE CLIENTES
 	public void agregarCliente(String codigo, String nombre, String direccion, String correo, String formaPago) {
@@ -124,12 +150,13 @@ public class Empresa {
 		clientes2 = new Cliente[clientes.length-1];
 		int cont = 0 ;
 		for(int i = 0 ; i < clientes.length; i++) {
-			if(clientes2[i].getCodigo().compareTo(codigo)!=0) {
+			if(clientes[i].getCodigo().compareTo(codigo)!=0) {
 				clientes2[cont]=clientes[i]; 
 				cont++;
 			}
 		}
 		clientes = Arrays.copyOf(clientes2, clientes2.length);
+		throw new ECliente("No se pudo borrar el cliente");
 	}
 	
 				// ---------- METODOS DE PIEZA
