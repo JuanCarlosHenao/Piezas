@@ -62,13 +62,13 @@ public class Empresa {
 
 	
 				// ---------- METODOS DE CLIENTES
-	public void agregarCliente(String codigo, String nombre, String direccion, String correo) {
+	public void agregarCliente(String codigo, String nombre, String direccion, String correo, String formaPago) {
 		if (clientes == null) {
 			clientes = new Cliente[1];
 		} else {
 			clientes = Arrays.copyOf(clientes, clientes.length+1);
 			}
-		clientes[clientes.length-1] = new Cliente(codigo, nombre, direccion, correo);
+		clientes[clientes.length-1] = new Cliente(codigo, nombre, direccion, correo, formaPago);
 	}
 	
 	public Cliente buscarCliente(String codigo) throws CSolicitud {
@@ -102,7 +102,7 @@ public class Empresa {
 		} else {
 			piezas = Arrays.copyOf(piezas, piezas.length + 1 );
 		}
-		piezas[piezas.length-1] = new Pieza(codigo, descripcion, peso);
+		//piezas[piezas.length-1] = new Pieza(codigo, descripcion, peso);
 	}
 	
 }

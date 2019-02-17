@@ -11,15 +11,16 @@ public class Cliente {
 	private boolean VIP;
 	private Solicitud[] solicitudes;
 	
-	public Cliente(String codigo, String nombre, String direccion, String correo) {
+	public Cliente(String codigo, String nombre, String direccion, String correo, String formaPago) {
 		super();
 		this.codigo = codigo;
 		this.nombre = nombre;
 		this.direccion = direccion;
 		this.correo = correo;
+		this.formaPago = formaPago;
 	}
 
-// ----- GETTERS & SETTERS ----- //
+	// ----- GETTERS & SETTERS ----- //
 	public String getCodigo() {
 		return codigo;
 	}
@@ -51,14 +52,15 @@ public class Cliente {
 	public void setCorreo(String correo) {
 		this.correo = correo;
 	}
-
-	public Solicitud[] getSolicitudes() {
-		return solicitudes;
+	
+	public String getFormaPago() {
+		return formaPago;
 	}
 
-	public void setSolicitudes(Solicitud[] solicitudes) {
-		this.solicitudes = solicitudes;
+	public void setFormaPago(String formaPago) {
+		this.formaPago = formaPago;
 	}
+
 	
 // ----- METODOS DE LA CLASE ----- //
 	
