@@ -88,30 +88,43 @@ public class Main {
 		*/
 		
 		
+		// veo que si fucione costo total solicitudes 
+		
 		System.out.println("costo pieza metalica 112*5 ="+e.costoSolicitud("1"));
 		System.out.println("costo pieza plstica 69*10 ="+e.costoSolicitud("2"));
 		System.out.println();
 		System.out.println(e.costoTotalSolicitudes("jk234"));
 		
 		
-		
+		// creo un ensamble para la  pieza mixta 
 		Pieza[] ensamble = new Pieza[2];
 		ensamble[0]=e.buscarSolicitud("1").getPieza();
 		ensamble[1]=e.buscarSolicitud("2").getPieza();
 		
+		// CREO UNA SOLICITUD DE PIEZA MIXTA 
 		// String codigo, String codCliente, String codigoPieza, String descripcion, double peso, String tipo, Date fecha, int cantidad, Pieza[] ensamble
 		e.agregarSolicitudMixta("3", "jk234", "53", "lami", 3,	"MIXTA", date, 10, ensamble);
 		
 		
 		
 		System.out.println(e.buscarSolicitud("3").getCodCliente());
+		
+		// costo total de la mixta es la suma de plastica y metalica 
 		System.out.println("costo pieza mixta 181*10 ="+e.costoSolicitud("3"));
 		
+		
+		// costo total de las solicitudes con la pieza mixta 
 		System.out.println(e.costoTotalSolicitudes("jk234"));
 		
 		System.out.println("----------------------------------------------");
 		
-		e.agregarCliente("mk69", "Empresa2", "Medellin", "correo@juancagay.com", "Cheque de Empresa");
+		
+		
+		// TEST VIP 
+		
+		// agrego solicitudes al otro cliente mk69,  que el costo total sea menor al de jk234, y el vip es jk234
+		
+		
 		e.agregarSolicitud("13", "mk69", "50", "camilo es gay", 10, "METALICA", date, 5);
 		e.agregarSolicitud("14", "mk69", "51", "camilo loca	", 10, "PLASTICO", date2, 10);
 		System.out.println("costo pieza plstica 84*5 ="+e.costoSolicitud("13"));

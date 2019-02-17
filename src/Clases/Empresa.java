@@ -70,7 +70,7 @@ public class Empresa {
 // ----- METODOS DE LA CLASE ----- //
 	
 			// ---------- METODOS DE SOLICITUD
-	
+	// creo un agregar piezas para ir colocnadolas en el array de piezas
 	public void aggPieza(Pieza p) {
 		if (piezas == null) {
 			piezas=new Pieza [1];
@@ -100,6 +100,8 @@ public class Empresa {
 		}
 	}
 	
+	
+	// creo un agregar solicitud mixta para que sea mas facil 
 	
 	public void agregarSolicitudMixta(String codigo, String codCliente, String codigoPieza, String descripcion, double peso, String tipo, Date fecha, int cantidad, Pieza[] ensamble) {
 		if(solicitudes == null) {
@@ -201,7 +203,8 @@ public class Empresa {
 	}
 	
 	
-	// FALTA 
+	// recorre cada cliente, calcula el costo total de las solicitudes de él, luego elige la mayor
+	// vuleve a comparar el costoTotalsolicitudes con la myor y da el codigo del cliente 
 	public Cliente buscarVip() throws ESolicitud, CSolicitud {
 		double mayor=0;
 		
@@ -221,8 +224,6 @@ public class Empresa {
 		
 		return null;
 		
-	
-				// ---------- METODOS DE PIEZA
 	}
 	
 }
