@@ -6,7 +6,7 @@ import java.util.Date;
 
 public class Main {
 
-	public static void main(String[] args) throws ParseException, ESolicitud, CSolicitud {
+	public static void main(String[] args) throws Exception {
 
 		Empresa e = new Empresa("EIA" , "Envigado" );
 		
@@ -46,6 +46,9 @@ public class Main {
 		System.out.println("--> RESUMEN DE CLIENTES DE LA EMPRESA " + e.getNombre() + " <--");
 		System.out.println();
 		e.imprimirCliente();
+		System.out.println("Costo total de la empresa " + e.totalEmpresa());
+		System.out.println(e.piezaMasVendida());
+		System.out.println(e.masVendida());
 		
 		//System.out.println("El cliente VIP es: " + e.buscarVip().getCodigo());
 		

@@ -160,6 +160,62 @@ public class Empresa {
 		return total ;
 	}
 	
+	public double totalEmpresa() throws ESolicitud, CSolicitud {
+		double total = 0 ;
+		String a = "";
+		for(int i = 0 ; i < solicitudes.length ; i++) {
+			a = solicitudes[i].getCodigo();
+			total += costoSolicitud(a);			
+		}
+		return total;
+	}
+	
+	public int buscarIndexPieza(String codigo) throws Exception {
+		int i = 0 ;
+		while(i < piezas.length && piezas[i].getCodigo().compareTo(codigo)!=0) i++;
+		if(i < piezas.length) return i;
+		else throw new Exception("la pieza no existe.");
+	}
+	
+	public int[] cantidadPorPiezas() throws Exception {
+		int[] cantidadVendidas = new int[piezas.length];
+		for(Cliente c : clientes)
+			for(Solicitud s : c.getSolicitudes()) {
+				cantidadVendidas[buscarIndexPieza(s.getPieza().getCodigo())] += s.getCantidad();
+			}
+		return cantidadVendidas;
+	}
+	
+	public Pieza masVendida() throws Exception {
+		int[] cantidadVendidas = new int[piezas.length];
+		int mayor = 0 ;
+		for(int i = 1 ; i < cantidadVendidas.length ; i++) {
+			if(cantidadVendidas[i] > cantidadVendidas[mayor]) mayor = i ;
+		}
+		return piezas[mayor];
+	}
+	
+	public Pieza piezaMasVendida() throws Exception {
+		 int cantidades[]=new int[piezas.length];
+		 for (int i=0;i<solicitudes.length;i++) {
+			 int posicion=buscarIndexPieza(solicitudes[i].getPieza().getCodigo());
+			 cantidades[posicion]+=solicitudes[i].getCantidad();
+		 }
+		 int mayor=0;
+		 int indiceMayor=0;
+		 for (int i=0;i<cantidades.length;i++) {
+			 if (cantidades[i]>mayor) {
+				 mayor=cantidades[i];
+				 indiceMayor=i;
+			 }
+		 }
+		 
+		return piezas[indiceMayor];
+		
+		 
+	 }
+	
+	
 				// ---------- METODOS DE CLIENTES
 	public void agregarCliente(String codigo, String nombre, String direccion, String correo, String formaPago) {
 		if (clientes == null) {
