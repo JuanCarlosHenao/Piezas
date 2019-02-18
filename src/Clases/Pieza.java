@@ -1,6 +1,6 @@
 package Clases;
 
-public abstract class Pieza {
+abstract class Pieza {
 
 // ----- DEFINICION DE LOS ATRIBUTOS DE LA CLASE ----- //
 	protected String codigo;
