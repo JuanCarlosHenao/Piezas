@@ -72,6 +72,11 @@ public class Empresa {
 		piezas[piezas.length-1]=p;
 	}
 	
+	
+	// al agregar una solictud se busca una pieza
+	
+	
+	
 	public void agregarSolicitud(String codigo, String codCliente, String codigoPieza, String descripcion, double peso, String tipo, Date fecha, int cantidad) {
 		if(solicitudes == null) {
 			solicitudes = new Solicitud[1];
@@ -232,4 +237,127 @@ public class Empresa {
 		}
 	}
 	
+	
+	
+ public double costoTotalEmpresa() throws ESolicitud {
+	 double total=0;
+	 for (int i=0;i<solicitudes.length;i++) {
+		 total+=costoSolicitud(solicitudes[i].getCodigo());
+	 }
+	 return total;
+	 
+ }
+ 
+ 
+ 
+ // este codido debe de devolver la pieza
+ 
+ 
+ // la cantidad que se vendio de cada pieza, por cada solicitud sacar el codigo de la pieza y la cantidad
+ 
+ // metodo de indexPieza 
+ // crear un arreglo de enteros de igual tamaño que el de piezas para guardar en el mismo indice la cantidad de cada una 
+ 
+ 
+ 
+ public int buscarindexPieza(String codPieza) throws Exception {
+	 int i=0;
+	 while (i<piezas.length && piezas[i].getCodigo().compareTo(codPieza)!=0) {
+		 i++;
+		 
+	 }
+	 if (i<piezas.length) {
+		 return i;
+		 
+	 }else 
+		 throw new Exception ("la pieza no existe");
+		
+ }
+ public Pieza piezaMasVendida() throws Exception {
+	 int cantidades[]=new int[piezas.length];
+	 for (int i=0;i<solicitudes.length;i++) {
+		 int posicion=buscarindexPieza(solicitudes[i].getCodPieza());
+		 cantidades[posicion]+=solicitudes[i].getCantidad();
+	 }
+	 int mayor=0;
+	 int indiceMayor=0;
+	 for (int i=0;i<cantidades.length;i++) {
+		 if (cantidades[i]>mayor) {
+			 mayor=cantidades[i];
+			 indiceMayor=i;
+		 }
+	 }
+	 
+	return piezas[indiceMayor];
+	
+	 
+ }
+ 
+ 
+ // metodo para buscar la pieza mas vendida por tipo, la mas vendida de metal, la mas vendida plastica 
+	
+ 
+ public Pieza piezaMasVendidaXTipo() throws Exception {
+	 int cantidades[]=new int[piezas.length];
+	 int mayorMetal=0;
+	 int indiceMayorMetal=0;
+	 int mayorPlastico=0;
+	 int indiceMayorPlastico=0;
+	 int mayorMixta=0;
+	 int indiceMayorrMixta=0;
+	 
+	 for (int i=0;i<solicitudes.length;i++) {
+		 int posicion=buscarindexPieza(solicitudes[i].getCodPieza());
+		 cantidades[posicion]+=solicitudes[i].getCantidad();
+		 
+		 if (piezas[i] instanceof Metalica) {
+			
+			 for (int i=0;i<cantidades.length;i++) {
+				 if (cantidades[i]>mayorMetal) {
+					 mayorMetal=cantidades[i];
+					 indiceMayorMetal=i;
+				 }
+			 }
+			 
+			return piezas[indiceMayorMetal];
+
+		 }
+		 
+		 if (piezas[i] instanceof Plastico) {
+				
+			 for (int i=0;i<cantidades.length;i++) {
+				 if (cantidades[i]>mayorPlastico) {
+					 mayorMetal=cantidades[i];
+					 indiceMayorPlastico=i;
+				 }
+			 }
+			 
+			return piezas[indiceMayorMetal];
+
+		 }
+		 
+		 
+		 if (piezas[i] instanceof Metalica) {
+				
+			 for (int i=0;i<cantidades.length;i++) {
+				 if (cantidades[i]>mayorMetal) {
+					 mayorMetal=cantidades[i];
+					 indiceMayorMetal=i;
+				 }
+			 }
+			 
+			return piezas[indiceMayorMetal];
+
+		 }
+	 }
+	 
+	 
+		
+	}
+ 
+ 
+ // FAlTA 
+ // metodo con parametro tipo que devuelva la o las piezas mas vendidas
+	 
+ 
 }

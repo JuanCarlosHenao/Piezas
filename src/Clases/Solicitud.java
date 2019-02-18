@@ -11,6 +11,11 @@ public class Solicitud {
 	private String codCliente ;
 	private Pieza pieza;
 	private String tipo;
+	private String codPieza;
+	
+	
+	
+	// codigo de pieza no va , solo es con pieza 
 	
 	public Solicitud(String codigo, String codCliente , String tipo , Date fecha, int cantidad) {
 		this.codigo = codigo;
@@ -78,6 +83,14 @@ public class Solicitud {
 
 	public void setCodCliente(String codCliente) {
 		this.codCliente = codCliente;
+	}
+
+	public String getCodPieza() {
+		return codPieza;
+	}
+
+	public void setCodPieza(String codPieza) {
+		this.codPieza = codPieza;
 	}
 
 }

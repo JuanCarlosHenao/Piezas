@@ -19,7 +19,7 @@ public class Mixta extends Pieza {
 	}
 
 	// era para agregar mas piezas al ensamble, pero no dio 
-	@Override
+	
 	public void addPieza(String tipoPieza) {
 		// TODO Auto-generated method stub
 		

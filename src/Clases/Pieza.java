@@ -45,9 +45,9 @@ public abstract class Pieza {
 	
 	
 	public abstract double calcPrecio();
-	public void addPieza(String tipoPieza) {
+/*	public void addPieza(String tipoPieza) {
 		
-	}
+	}*/
 	
 	
 
